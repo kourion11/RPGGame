@@ -3,30 +3,34 @@ fun main(args: Array<String>) {
     println("Введите никнейм:")
     var name: String? = readLine()
     println("Введите возраст вашего персонажа:")
-    var age: String? = readLine()
-    println("Выберете рассу (Люди, Орки, Эльфы):")
-    var race = readLine()
+    var age = readLine()!!.toInt()
+    println("Выберите рассу: 1.Люди, 2.Орки, 3.Эльфы:")
+    var race = readLine()!!.toInt()
+    var raceChar: String = ""
     var hp: Int = 0
     var dmg: Int = 0
 
-    if (race == "Люди") {
-        race = "Человек "
-        hp = 10
-        dmg = 10
-    } else if (race == "Орки") {
-        hp = 12
-        dmg = 8
-    } else if (race == "Эльфы") {
-        hp = 8
-        dmg = 12
-    } else {
-        println("Ошибка, в следующий раз верно укажите рассу!")
-        return }
+    if(age in 1..100)
+        age = age
+    else
+        println("Введите корректное значение!")
+
+    if(race in 1..3) {
+        if(race == 1)
+            raceChar = "Человек"
+        else if(race == 2)
+            raceChar = "Орк"
+        else if(race == 3)
+            raceChar = "Эльф"
+        else
+            println("Выберите рассу из списка!") }
+    else
+        println("Выберите вариант от 1 до 3")
 
     println("")
     println("Ваш никнейм: $name")
     println("Ваш возраст: $age")
-    println("Ваша расса: ${race.dropLast(1)}")
+    println("Ваша расса: $raceChar")
     println("Кол-во здоровья: $hp")
     println("Кол-во урона: $dmg")
 
