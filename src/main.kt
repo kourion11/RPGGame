@@ -16,12 +16,18 @@ fun main(args: Array<String>) {
         println("Введите корректное значение!")
 
     if(race in 1..3) {
-        if(race == 1)
+        if(race == 1) {
             raceChar = "Человек"
-        else if(race == 2)
+            hp = 10
+            dmg = 10 }
+        else if(race == 2) {
             raceChar = "Орк"
-        else if(race == 3)
+            hp = 12
+            dmg = 8 }
+        else if(race == 3) {
             raceChar = "Эльф"
+            hp = 8
+            dmg = 12 }
         else
             println("Выберите рассу из списка!") }
     else
