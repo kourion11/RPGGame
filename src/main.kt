@@ -13,10 +13,10 @@ fun main(args: Array<String>) {
     var ageHeroText: String = ""
 
     //Корректность возраста
-    if (age in 1..100)
-        age
-    else
-        println("Введите корректное значение!")
+    when (age) {
+        in 1..100 -> age
+        else -> println("Введите корректное значение!")
+    }
 
     //Проверка возраста
     when (age) {
