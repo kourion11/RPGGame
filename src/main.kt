@@ -13,47 +13,53 @@ fun main(args: Array<String>) {
     var ageHeroText: String = ""
 
     //Корректность возраста
-    if(age in 1..100)
+    if (age in 1..100)
         age
     else
         println("Введите корректное значение!")
 
     //Проверка возраста
-    when(age) {
+    when (age) {
         in 1..30 -> ageHero = 1
         in 30..60 -> ageHero = 2
         in 60..100 -> ageHero = 3
     }
 
     //Расса героя
-    if(race == 1) {
-        raceChar = "Человек"
-        hp = 10
-        dmg = 10 }
-    else if(race == 2) {
-        raceChar = "Орк"
-        hp = 12
-        dmg = 8 }
-    else if(race == 3) {
-        raceChar = "Эльф"
-        hp = 8
-        dmg = 12 }
-    else
-        println("Выберите вариант от 1 до 3")
+    when (race) {
+        1 -> {
+            raceChar = "Человек"
+            hp = 10
+            dmg = 10
+        }
+        2 -> {
+            raceChar = "Орк"
+            hp = 12
+            dmg = 8
+        }
+        3 -> {
+            raceChar = "Эльф"
+            hp = 8
+            dmg = 12
+        }
+        else -> println("Выберите вариант от 1 до 3")
+    }
 
     //Возраст героя
-    if(ageHero == 1) {
-        ageHeroText = "Ваш персонаж молод, Вы получаете +2 к хп и +2 к урону"
-        hp += 2
-        dmg += 2
-    } else if(ageHero == 2) {
-        ageHeroText = "Ваш персонаж средних лет"
-    } else if(ageHero == 3) {
-        ageHeroText = "Ваш персонаж стар, Вы теряете -2 хп и -2 от урона"
-        hp -= 2
-        dmg -= 2
-    } else
-            println("Не получилось определить возраст")
+    when (ageHero) {
+        1 -> {
+            ageHeroText = "Ваш персонаж молод, Вы получаете +2 к хп и +2 к урону"
+            hp += 2
+            dmg += 2
+        }
+        2 -> ageHeroText = "Ваш персонаж средних лет"
+        3 -> {
+            ageHeroText = "Ваш персонаж стар, Вы теряете -2 хп и -2 от урона"
+            hp -= 2
+            dmg -= 2
+        }
+        else -> println("Не получилось определить возраст")
+    }
 
     //Вывод характеристик персонажа
     char(name, age, ageHeroText, raceChar, hp, dmg)
